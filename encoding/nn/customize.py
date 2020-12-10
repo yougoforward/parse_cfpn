@@ -23,7 +23,7 @@ from .BoundaryLabelRelaxationLoss import ImgWtLossSoftNLL
 
 torch_ver = torch.__version__[:3]
 
-__all__ = ['SegmentationLosses', 'SegmentationLosses_contour', 'SegmentationLosses_contour_BoundaryRelax', 'PyramidPooling', 'JPU', 'JPU_X', 'Mean', 'SegmentationLosses_object', 'SegmentationLosses_objectcut'，'SegmentationLosses_parse','ASPPModule', 'SEModule']
+__all__ = ['SegmentationLosses', 'SegmentationLosses_contour', 'SegmentationLosses_contour_BoundaryRelax', 'PyramidPooling', 'JPU', 'JPU_X', 'Mean', 'SegmentationLosses_object', 'SegmentationLosses_objectcut','SegmentationLosses_parse','ASPPModule', 'SEModule']
 class SegmentationLosses_parse(CrossEntropyLoss):
     """2D Cross Entropy Loss with Auxilary Loss"""
     def __init__(self, se_loss=False, se_weight=0.2, nclass=-1,
