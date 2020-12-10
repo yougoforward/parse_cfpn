@@ -5,6 +5,7 @@ from .fcn import *
 from .psp import *
 from .encnet import *
 from .deeplabv3 import *
+from .abrnet import *
 
 from .cfpn import *
 from .cfpn2 import *
@@ -50,6 +51,7 @@ def get_segmentation_model(name, **kwargs):
         'psp': get_psp,
         'encnet': get_encnet,
         'deeplab': get_deeplab,
+        'abrnet': get_abrnet,
 
         'cfpn': get_cfpn,
         'cfpn2': get_cfpn2,
