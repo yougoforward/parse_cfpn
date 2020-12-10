@@ -133,7 +133,7 @@ class ResNet(nn.Module):
     """
     # pylint: disable=unused-variable
     def __init__(self, block, layers, num_classes=1000, dilated=False,
-                 deep_base=True, norm_layer=nn.BatchNorm2d, output_size=8):
+                 deep_base=True, norm_layer=nn.BatchNorm2d, output_size=16):
         self.inplanes = 128 if deep_base else 64
         super(ResNet, self).__init__()
         if deep_base:
