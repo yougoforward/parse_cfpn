@@ -659,20 +659,20 @@ class ASPPModule(nn.Module):
     
     def lovasz_softmax(probas, labels, classes='present', per_image=False, ignore=None):
         """
-    Multi-class Lovasz-Softmax loss
-      probas: [B, C, H, W] Variable, class probabilities at each prediction (between 0 and 1).
-              Interpreted as binary (sigmoid) output with outputs of size [B, H, W].
-      labels: [B, H, W] Tensor, ground truth labels (between 0 and C - 1)
-      classes: 'all' for all, 'present' for classes present in labels, or a list of classes to average.
-      per_image: compute the loss per image instead of per batch
-      ignore: void class labels
-    """
-    if per_image:
-        loss = mean(lovasz_softmax_flat_ori(*flatten_probas_ori(prob.unsqueeze(0), lab.unsqueeze(0), ignore), classes=classes)
-                          for prob, lab in zip(probas, labels))
-    else:
-        loss = lovasz_softmax_flat_ori(*flatten_probas_ori(probas, labels, ignore), classes=classes)
-    return loss
+        Multi-class Lovasz-Softmax loss
+        probas: [B, C, H, W] Variable, class probabilities at each prediction (between 0 and 1).
+                Interpreted as binary (sigmoid) output with outputs of size [B, H, W].
+        labels: [B, H, W] Tensor, ground truth labels (between 0 and C - 1)
+        classes: 'all' for all, 'present' for classes present in labels, or a list of classes to average.
+        per_image: compute the loss per image instead of per batch
+        ignore: void class labels
+        """
+        if per_image:
+            loss = mean(lovasz_softmax_flat_ori(*flatten_probas_ori(prob.unsqueeze(0), lab.unsqueeze(0), ignore), classes=classes)
+                            for prob, lab in zip(probas, labels))
+        else:
+            loss = lovasz_softmax_flat_ori(*flatten_probas_ori(probas, labels, ignore), classes=classes)
+        return loss
 
 def lovasz_softmax_flat_ori(probas, labels, classes='present'):
     """
